@@ -1,21 +1,12 @@
 class Solution {
     public int getDecimalValue(ListNode head) {
-        ListNode fhead = head;
-        StringBuilder str = new StringBuilder(); 
+        int sum = 0;
         
-        // Loop for appending all binary no.s
-        while (fhead != null) {
-            str.append(fhead.val);
-            fhead = fhead.next; 
-            System.out.println(str);
+        while (head != null){
+            sum *= 2;
+            sum += head.val;
+            head = head.next;
         }
-
-        // 
-        String binaryString = str.toString();
-        System.out.println(binaryString);
-
-        // Convert binaryString(binary) to integer
-        int decimalValue = Integer.parseInt(binaryString, 2);
-        return decimalValue;
+        return sum;
     }
 }
