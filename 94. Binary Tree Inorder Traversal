@@ -1,0 +1,25 @@
+//Using While Loop
+
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> ls = new ArrayList<>();
+        if(root==null){
+            return ls;
+        };
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode temp = root;
+
+        while(!stack.isEmpty() || temp != null){
+            if(temp != null){
+                stack.push(temp);
+                temp = temp.left;
+            } else{
+                temp = stack.pop();
+                System.out.print(temp.val + "");
+                ls.add(temp.val);
+                temp = temp.right;
+            };
+        };
+        return ls;
+    }
+};
