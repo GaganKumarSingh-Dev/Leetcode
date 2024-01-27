@@ -10,3 +10,31 @@ class Solution {
             return n==reversedNum || n==reversedNum/10;
     }
 }
+
+
+
+
+
+// Code with no optimization
+
+class Solution {
+    public boolean isPalindrome(int n) {
+        if(n>=0){
+            if (n<10){return true;};
+            n = Math.abs(n);
+            int len = (int)Math.log10(n) + 1; // length of the number
+            int half_len = len/2;
+            int first_digits = n/(int)Math.pow(10, (len % 2 == 0)?half_len:half_len+1);
+            System.out.println(first_digits);
+            int rev=0;
+            for(int i=0; i<half_len;i++){
+                int lastDigit = n%10;
+                rev = rev *10 + lastDigit;
+                n=n/10;
+            }
+            System.out.println(rev);
+            if(rev==first_digits){return true;} else {return false;} 
+        }
+        else{return false;}
+    }
+}
