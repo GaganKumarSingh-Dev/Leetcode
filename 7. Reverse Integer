@@ -1,10 +1,11 @@
 class Solution {
     public int reverse(int x) {
         int num = Math.abs(x); //for positive value
-        int reversedNum = 0;
+        int reversedNum = 0; //7789
         while(num>0){
             int lastDigit = num % 10;
             if(reversedNum > (Integer.MAX_VALUE - lastDigit)/10){ return 0; }
+            // above snippet is checking if adding the last digit to the reversed number would cause an integer overflow.
             reversedNum = (reversedNum * 10) + lastDigit;
             num = num /10;
         }
